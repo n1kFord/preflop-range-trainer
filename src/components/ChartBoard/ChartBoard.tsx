@@ -84,13 +84,8 @@ const ChartBoard: FC<ChartBoardProps> = ({ setTrainingActions }) => {
         villain?: PositionType,
     ) => formatRange(getCards(act, hero, villain), act).trim() !== "";
 
-    const hasHandsForAction = (act: ActionType) => {
-        return act === "RFI"
-            ? POSITIONS.some((hero) => hasRange(act, hero))
-            : availableVillainPositions.some((villain) =>
-                  POSITIONS.some((hero) => hasRange(act, hero, villain)),
-              );
-    };
+    const hasHandsForRFI = POSITIONS.some((hero) => hasRange("RFI", hero));
+    console.log(hasHandsForRFI);
 
     const buildPracticeRanges = (): PracticeRangesNested => {
         const result: PracticeRangesNested = {};
@@ -293,12 +288,22 @@ const ChartBoard: FC<ChartBoardProps> = ({ setTrainingActions }) => {
 
                         <ul className="chart__actions__practice__items">
                             <li key="RFI">
-                                <label title="Include this action in practice">
+                                <label
+                                    title={
+                                        hasHandsForRFI
+                                            ? "Include this action in practice"
+                                            : "Please select at least one hand before starting."
+                                    }
+                                    className={cn({
+                                        disabled: !hasHandsForRFI,
+                                    })}
+                                >
                                     <input
                                         type="checkbox"
                                         checked={practiceActions.includes(
                                             "RFI",
                                         )}
+                                        disabled={!hasHandsForRFI}
                                         onChange={() =>
                                             togglePracticeAction("RFI")
                                         }

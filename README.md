@@ -50,7 +50,7 @@ Planned expansions include:
 ## 🌐 **Live Demo**
 
 Experience it online:  
-👉 **[preflop-range-trainer.vercel.app](https://preflop-range-trainer.vercel.app)** _(coming soon)_
+👉 **[preflop-range-trainer.vercel.app](https://preflop-range-trainer.vercel.app/)** _(coming soon)_
 
 > Deployed with ❤️ on [Vercel](https://vercel.com) — optimized for Chrome & Firefox.
 

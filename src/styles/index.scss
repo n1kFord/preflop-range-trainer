@@ -198,6 +198,10 @@ body {
                 color: white;
                 background-color: transparent;
                 outline: none;
+
+                &:disabled {
+                    cursor: default;
+                }
             }
 
             &.villain {
