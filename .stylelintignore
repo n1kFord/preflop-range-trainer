@@ -1,0 +1,9 @@
+# Ignore all build and distribution folders
+build/
+dist/
+out/
+
+# Ignore dependency folders
+node_modules/
+.yarn/
+
